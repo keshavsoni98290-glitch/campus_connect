@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= MAIN NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="navbar-left">
+
+        <button
+            id="backButton"
+            class="nav-back-btn"
+            onclick="goBack()"
+            aria-label="Go back">
+            ←
+        </button>
+
+        <div class="logo" onclick="showPage('home')">
+            <span>C</span>
+            Campus Connect
+        </div>
+
+    </div>
+
+    <div class="nav-links">
+        <button data-page="home">Home</button>
+        <button data-page="discover">Discover</button>
+        <button data-page="communities">Communities</button>
+        <button data-page="messages">Messages</button>
+        <button data-page="profile">Profile</button>
+        <button id="adminNavBtn" data-page="admin" style="display:none;">Admin</button>
+    </div>
+
+    <div class="nav-tools">
+        <button id="connectionRequestsBtn" class="nav-tool-btn" type="button" aria-label="Connection requests">
+            🔔
+            <span id="connectionRequestCount" class="notification-badge">0</span>
+        </button>
+        <button id="themeToggle" class="nav-tool-btn theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
+    </div>
+
+    <div id="connectionRequestsPanel" class="connection-requests-panel">
+        <div class="requests-panel-header">
+            <div>
+                <strong>Connection Requests</strong>
+                <small id="requestPanelSubtitle">No new requests</small>
+            </div>
+            <button id="closeRequestsPanel" type="button">×</button>
+        </div>
+        <div id="connectionRequestsList" class="connection-requests-list"></div>
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="home-page" class="page active-page">
+<section class="cc-home-hero">
+    <div>
+        <div class="cc-home-eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</div>
+        <h1>Connect with the <span>right people.</span></h1>
+        <p>Discover students who share your interests, skills and goals. Find communities, build teams and turn campus connections into real projects.</p>
+        <div class="cc-home-actions">
+            <button class="cc-home-primary">✨ Find My Matches</button>
+            <button class="cc-home-secondary">Discover Students</button>
+        </div>
+    </div>
+
+    <div class="cc-home-visual">
+    <div class="cc-home-glow"></div>
+
+    <div class="cc-home-network">
+
+        <div class="cc-home-line cc-home-l1"></div>
+        <div class="cc-home-line cc-home-l2"></div>
+        <div class="cc-home-line cc-home-l3"></div>
+        <div class="cc-home-line cc-home-l4"></div>
+
+        <div class="cc-home-node cc-home-n1">👨‍💻</div>
+        <div class="cc-home-node cc-home-n2">🎨</div>
+        <div class="cc-home-node cc-home-main-node">C</div>
+        <div class="cc-home-node cc-home-n3">🤖</div>
+        <div class="cc-home-node cc-home-n4">🚀</div>
+
+    </div>
+
+    <div class="cc-home-visual-label">
+        AI-powered campus connections
+    </div>
+</div>
+</section>
+
+<section class="cc-home-section">
+    <div class="cc-home-stats">
+
+    <div class="cc-home-stat">
+        <div class="cc-stat-icon">👥</div>
+        <div>
+            <strong>1,200+</strong>
+            <span>Students</span>
+        </div>
+    </div>
+
+    <div class="cc-home-stat">
+        <div class="cc-stat-icon">🌐</div>
+        <div>
+            <strong>35+</strong>
+            <span>Communities</span>
+        </div>
+    </div>
+
+    <div class="cc-home-stat">
+        <div class="cc-stat-icon">🤝</div>
+        <div>
+            <strong>120+</strong>
+            <span>Teams</span>
+        </div>
+    </div>
+
+    <div class="cc-home-stat">
+        <div class="cc-stat-icon">📁</div>
+        <div>
+            <strong>80+</strong>
+            <span>Projects</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="cc-home-section-head">
+    <div>
+        <h2>✨ Find Your People with AI</h2>
+        <p>Match with students based on interests, skills and goals.</p>
+    </div>
+</div>
+
+    
+
+    <div class="cc-home-ai">
+        <div>
+            <div class="cc-home-eyebrow">AI MATCHMAKER</div>
+            <h2>Stop searching. Let your interests find your people.</h2>
+            <p>Tell Campus Connect what you enjoy, what you can do and what you want to build. Your matches can help you discover teammates, collaborators and communities that fit.</p>
+            <div class="cc-home-chips">
+                <span class="cc-home-chip">AI & ML</span><span class="cc-home-chip">Web Development</span>
+                <span class="cc-home-chip">Startups</span><span class="cc-home-chip">UI/UX</span>
+                <span class="cc-home-chip">DSA</span><span class="cc-home-chip">Photography</span>
+            </div>
+            <button class="cc-home-primary">Find My Matches →</button>
+        </div>
+        <div class="cc-home-ai-side">
+            <div class="cc-home-match-ring"><div><strong>92%</strong><br><small>match</small></div></div>
+        </div>
+    </div>
+
+    <div class="cc-home-section-head">
+        <div><h2>👥 People You May Know</h2><p>Students with interests similar to yours.</p></div>
+        <a class="cc-home-link" href="#">View all →</a>
+    </div>
+
+    <div class="cc-home-cards">
+        <div class="cc-home-card"><div class="cc-home-card-top"><div class="cc-home-avatar">KM</div><div><h3>Karan Mehta</h3><div class="cc-home-muted">AI Enthusiast</div></div></div><div class="cc-home-tags"><span class="cc-home-tag">Python</span><span class="cc-home-tag">AI</span><span class="cc-home-tag">Startups</span></div><button>Connect</button></div>
+        <div class="cc-home-card"><div class="cc-home-card-top"><div class="cc-home-avatar">AV</div><div><h3>Ananya Verma</h3><div class="cc-home-muted">UI/UX Designer</div></div></div><div class="cc-home-tags"><span class="cc-home-tag">Figma</span><span class="cc-home-tag">Design</span><span class="cc-home-tag">Branding</span></div><button>Connect</button></div>
+        <div class="cc-home-card"><div class="cc-home-card-top"><div class="cc-home-avatar">RS</div><div><h3>Rahul Sharma</h3><div class="cc-home-muted">Web Developer</div></div></div><div class="cc-home-tags"><span class="cc-home-tag">React</span><span class="cc-home-tag">Node.js</span><span class="cc-home-tag">Web</span></div><button>Connect</button></div>
+    </div>
+
+    <div class="cc-home-section-head">
+        <div><h2>🚀 Teams Looking for Members</h2><p>Join a project or find people for your own idea.</p></div>
+        <a class="cc-home-link" href="#">Find more teams →</a>
+    </div>
+
+    <div class="cc-home-team-list">
+        <div class="cc-home-card cc-home-team"><div class="cc-home-team-info"><div class="cc-home-team-icon">🤖</div><div><h3>Campus AI Assistant</h3><p>Python • AI • ML &nbsp; · &nbsp; 3/5 Members</p></div></div><button class="cc-home-primary">Request to Join</button></div>
+        <div class="cc-home-card cc-home-team"><div class="cc-home-team-info"><div class="cc-home-team-icon">🌐</div><div><h3>Smart Campus</h3><p>React • Node.js &nbsp; · &nbsp; 2/4 Members</p></div></div><button class="cc-home-primary">Request to Join</button></div>
+    </div>
+
+    <div class="cc-home-section-head">
+        <div><h2>How Campus Connect Works</h2><p>From finding people to building something together.</p></div>
+    </div>
+
+    <div class="cc-home-how">
+        <div class="cc-home-step"><div class="cc-home-step-num">01 — DISCOVER</div><h3>Find your people</h3><p>Explore students, communities and interests across your campus.</p></div>
+        <div class="cc-home-step"><div class="cc-home-step-num">02 — CONNECT</div><h3>Start connecting</h3><p>Send requests, join communities and meet students with similar goals.</p></div>
+        <div class="cc-home-step"><div class="cc-home-step-num">03 — COLLABORATE</div><h3>Build together</h3><p>Create teams, join projects and turn ideas into something real.</p></div>
+    </div>
+
+    <div class="cc-home-cta">
+        <h2>Your next teammate could be on your campus.</h2>
+        <p>Start discovering people who share your interests.</p>
+        <button class="cc-home-primary">Start Connecting →</button>
+    </div>
+</section>
+</main>
+
+
+
+<!-- ================= AI MATCHES ================= -->
+
+<main id="matches-page" class="page">
+
+    <section class="matches-page-header">
+        <span class="page-label">AI MATCHMAKER</span>
+        <h1>Find Your Matches</h1>
+        <p>Discover students who match your interests, skills and goals.</p>
+    </section>
+
+    <section class="ai-match-interface">
+        <div class="ai-match-intro">
+            <div class="ai-match-icon">✨</div>
+            <div>
+                <h2>Let Campus Connect find your people</h2>
+                <p>Choose what you want to connect around. Your personalised matches will appear here.</p>
+            </div>
+        </div>
+
+        <div class="ai-match-options">
+            <div class="ai-match-option">
+                <span>🎯</span>
+                <div><strong>Interests</strong><small>AI, startups, design, photography...</small></div>
+            </div>
+            <div class="ai-match-option">
+                <span>💻</span>
+                <div><strong>Skills</strong><small>Programming, UI/UX, marketing...</small></div>
+            </div>
+            <div class="ai-match-option">
+                <span>🚀</span>
+                <div><strong>Goals</strong><small>Projects, teams, learning, startups...</small></div>
+            </div>
+        </div>
+
+        <button class="ai-match-start-btn" type="button">✨ Find My Matches</button>
+    </section>
+
+    <section class="ai-match-preview">
+        <div class="ai-match-section-head">
+            <div>
+                <span class="page-label">MATCH PREVIEW</span>
+                <h2>People who could be a great fit</h2>
+            </div>
+            <span class="ai-match-badge">AI MATCH</span>
+        </div>
+
+        <div class="ai-match-cards">
+            <div class="ai-match-card">
+                <div class="ai-match-avatar">KM</div>
+                <div class="ai-match-card-info">
+                    <h3>Karan Mehta</h3><p>AI Enthusiast</p>
+                    <div class="student-tags"><span>Python</span><span>AI</span><span>Startups</span></div>
+                </div>
+                <div class="ai-match-score">92%</div>
+            </div>
+
+            <div class="ai-match-card">
+                <div class="ai-match-avatar">AV</div>
+                <div class="ai-match-card-info">
+                    <h3>Ananya Verma</h3><p>UI/UX Designer</p>
+                    <div class="student-tags"><span>Figma</span><span>Design</span><span>Branding</span></div>
+                </div>
+                <div class="ai-match-score">86%</div>
+            </div>
+
+            <div class="ai-match-card">
+                <div class="ai-match-avatar">RS</div>
+                <div class="ai-match-card-info">
+                    <h3>Rahul Sharma</h3><p>Web Developer</p>
+                    <div class="student-tags"><span>React</span><span>Node.js</span><span>Web</span></div>
+                </div>
+                <div class="ai-match-score">81%</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ================= DISCOVER ================= -->
+
+<main id="discover-page" class="page">
+
+    <section class="page-header">
+
+        <span class="page-label">DISCOVER</span>
+
+        <h1>Find Students</h1>
+
+        <p>
+            Discover students based on their interests,
+            skills and goals.
+        </p>
+
+    </section>
+
+
+    <!-- ================= TEAM ACTIONS ================= -->
+
+    <div class="discover-team-actions">
+
+        <button
+            class="team-action-card join-team-action"
+            onclick="openJoinTeam()">
+            <span class="team-action-icon">🤝</span>
+            <span>
+                <strong>Join a Team</strong>
+                <small>Find teams looking for members</small>
+            </span>
+        </button>
+
+        <button
+            class="team-action-card create-team-action"
+            onclick="openCreateTeam()">
+            <span class="team-action-icon">➕</span>
+            <span>
+                <strong>Create a Team</strong>
+                <small>Create your own team and invite students</small>
+            </span>
+        </button>
+
+    </div>
+
+
+    <!-- ================= STUDENT SEARCH & FILTER ================= -->
+
+    <div class="discover-filter-row">
+
+        <div class="search-box discover-search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="studentSearch"
+                placeholder="Search students, skills or interests...">
+
+        </div>
+
+        <select id="studentFilter" class="student-filter">
+            <option value="all">All Students</option>
+            <option value="web">Web Development</option>
+            <option value="ai">AI & ML</option>
+            <option value="design">UI/UX & Design</option>
+            <option value="dsa">DSA & Programming</option>
+            <option value="startup">Startup & Business</option>
+        </select>
+
+    </div>
+
+
+    <!-- ================= JOIN TEAM / CREATE TEAM PANELS ================= -->
+
+    <section id="joinTeamPanel" class="team-panel">
+
+        <div class="team-panel-header">
+            <div>
+                <span class="page-label">TEAM FINDER</span>
+                <h2>Join a Team</h2>
+                <p>Send a request to a team creator. They can approve or reject your request.</p>
+            </div>
+            <button class="team-panel-close" onclick="closeTeamPanels()">×</button>
+        </div>
+
+        <div id="teamList" class="team-list">
+
+            <div class="team-card" data-team-search="campus ai assistant python ai machine learning">
+                <div class="team-card-main">
+                    <div class="team-avatar">CA</div>
+                    <div>
+                        <h3>Campus AI Assistant</h3>
+                        <p>Created by Karan Mehta</p>
+                        <div class="student-tags">
+                            <span>Python</span>
+                            <span>AI</span>
+                            <span>3/5 Members</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="connect-btn team-join-btn" onclick="requestToJoinTeam('Campus AI Assistant')">Request to Join</button>
+            </div>
+
+            <div class="team-card" data-team-search="smart campus web development react node startup">
+                <div class="team-card-main">
+                    <div class="team-avatar">SC</div>
+                    <div>
+                        <h3>Smart Campus</h3>
+                        <p>Created by Rahul Sharma</p>
+                        <div class="student-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>2/4 Members</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="connect-btn team-join-btn" onclick="requestToJoinTeam('Smart Campus')">Request to Join</button>
+            </div>
+
+            <div class="team-card" data-team-search="startup business entrepreneurship pitch design">
+                <div class="team-card-main">
+                    <div class="team-avatar">SV</div>
+                    <div>
+                        <h3>Student Startup Venture</h3>
+                        <p>Created by Simran Kaur</p>
+                        <div class="student-tags">
+                            <span>Startup</span>
+                            <span>Business</span>
+                            <span>3/6 Members</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="connect-btn team-join-btn" onclick="requestToJoinTeam('Student Startup Venture')">Request to Join</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="createTeamPanel" class="team-panel">
+
+        <div class="team-panel-header">
+            <div>
+                <span class="page-label">TEAM BUILDER</span>
+                <h2>Create a Team</h2>
+                <p>Create a team and receive join requests from other students.</p>
+            </div>
+            <button class="team-panel-close" onclick="closeTeamPanels()">×</button>
+        </div>
+
+        <div class="create-team-form">
+            <input id="newTeamName" type="text" placeholder="Team name">
+            <input id="newTeamSkill" type="text" placeholder="Skills needed (e.g. React, Python, UI/UX)">
+            <textarea id="newTeamDescription" placeholder="What are you building?"></textarea>
+            <button class="primary-btn" onclick="createTeam()">Create Team</button>
+        </div>
+
+        <div class="team-requests-section">
+            <div class="section-heading">
+                <div>
+                    <h2>📩 Join Requests</h2>
+                    <p>Approve or reject students who want to join your team.</p>
+                </div>
+            </div>
+            <div id="teamRequests" class="team-requests-list">
+                <div class="request-card">
+                    <div class="team-avatar">NS</div>
+                    <div class="request-info">
+                        <h3>Nitin Sharma</h3>
+                        <p>Interested in Web Development</p>
+                    </div>
+                    <div class="request-actions">
+                        <button class="approve-btn" onclick="handleTeamRequest(this, 'approved')">Approve</button>
+                        <button class="reject-btn" onclick="handleTeamRequest(this, 'rejected')">Reject</button>
+                    </div>
+                </div>
+
+                <div class="request-card">
+                    <div class="team-avatar">PG</div>
+                    <div class="request-info">
+                        <h3>Priya Gupta</h3>
+                        <p>Interested in UI/UX Design</p>
+                    </div>
+                    <div class="request-actions">
+                        <button class="approve-btn" onclick="handleTeamRequest(this, 'approved')">Approve</button>
+                        <button class="reject-btn" onclick="handleTeamRequest(this, 'rejected')">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="student-grid">
+
+        
+
+    </section>
+
+</main>
+
+
+<!-- ================= COMMUNITIES ================= -->
+
+<main id="communities-page" class="page">
+
+    <section class="page-header">
+
+        <span class="page-label">COMMUNITIES</span>
+
+        <h1>Explore Communities</h1>
+
+        <p>
+            Join communities based on your interests,
+            skills and goals.
+        </p>
+
+    </section>
+
+
+    <div class="community-top-bar">
+
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="communitySearch"
+                placeholder="Search communities...">
+
+        </div>
+
+        <button
+            id="createCommunityBtn"
+            class="primary-btn">
+            + Create Community
+        </button>
+
+    </div>
+
+
+    <div class="category-filter">
+
+        <button class="category active" data-category="All">
+            All
+        </button>
+
+        <button class="category" data-category="Technology">
+            Technology
+        </button>
+
+        <button class="category" data-category="Career & Business">
+            Career & Business
+        </button>
+
+        <button class="category" data-category="Creative">
+            Creative
+        </button>
+
+        <button class="category" data-category="Entertainment">
+            Entertainment
+        </button>
+
+        <button class="category" data-category="Sports & Fitness">
+            Sports & Fitness
+        </button>
+
+    </div>
+
+
+    <div id="communityGrid" class="community-grid"></div>
+
+
+    <button
+        id="createCommunityBottom"
+        class="secondary-btn create-bottom">
+        + Create Your Own Community
+    </button>
+
+</main>
+
+
+<!-- ================= COMMUNITY DETAIL ================= -->
+
+<main id="community-detail-page" class="page">
+
+    <button
+        class="back-btn"
+        onclick="showPage('communities')">
+        ← Back to Communities
+    </button>
+
+
+    <!-- COMMUNITY TITLE BAR -->
+
+    <section class="community-header">
+
+        <div class="community-header-left">
+
+            <div
+                id="detailIcon"
+                class="detail-icon">
+                💻
+            </div>
+
+            <div class="community-header-info">
+
+                <span
+                    id="detailCategory"
+                    class="community-category">
+                    Technology
+                </span>
+
+                <h1 id="detailName">
+                    Coding & Programming
+                </h1>
+
+                <div class="community-stats">
+
+                    <span>
+                        👥
+                        <b id="detailMembers">0</b>
+                        Members
+                    </span>
+
+                    <span>
+                        🟢
+                        <b id="detailActive">0</b>
+                        Active
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOIN BUTTON UPAR -->
+
+        <button
+            id="joinCommunityBtn"
+            class="primary-btn">
+            Join Community
+        </button>
+
+    </section>
+
+
+    <!-- ================= COMMUNITY SUB NAV ================= -->
+
+    <div class="community-sub-navbar">
+
+        <button
+            class="community-tab active"
+            data-tab="about">
+            🏠 About
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="chat">
+            💬 Community Chat
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="discussions">
+            📝 Discussions
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="members">
+            👥 Members
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="events">
+            📅 Events
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="projects">
+            🤝 Projects
+        </button>
+
+        <button
+            class="community-tab"
+            data-tab="resources">
+            📚 Resources
+        </button>
+
+    </div>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <div
+        id="aboutTab"
+        class="community-tab-content active">
+
+
+        <section class="overview-card">
+
+            <h2>About Community</h2>
+
+            <p id="detailDescription">
+                Community description.
+            </p>
+
+        </section>
+
+
+        <!-- POPULAR DISCUSSIONS -->
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <h2>💬 Popular Discussions</h2>
+
+                <button
+                    onclick="openCommunityTab('discussions')">
+                    View All
+                </button>
+
+            </div>
+
+            <div id="overviewDiscussions"></div>
+
+        </section>
+
+
+        <!-- UPCOMING EVENTS -->
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <h2>📅 Upcoming Events</h2>
+
+                <button
+                    onclick="openCommunityTab('events')">
+                    View All
+                </button>
+
+            </div>
+
+            <div id="overviewEvents"></div>
+
+        </section>
+
+
+        <!-- RULES -->
+
+        <section class="overview-card community-rules">
+
+            <h2>📜 Community Rules</h2>
+
+            <ol>
+
+                <li>Respect all community members.</li>
+
+                <li>No spam or irrelevant promotion.</li>
+
+                <li>
+                    Keep discussions related to
+                    the community.
+                </li>
+
+                <li>No abusive or offensive language.</li>
+
+                <li>
+                    Help others and maintain a
+                    positive environment.
+                </li>
+
+            </ol>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= COMMUNITY CHAT ================= -->
+
+    <div
+        id="chatTab"
+        class="community-tab-content">
+
+        <section class="chat-container">
+
+            <div class="chat-header">
+
+                <h2>💬 Community Chat</h2>
+
+                <p>
+                    Talk with other members of this community.
+                </p>
+
+            </div>
+
+
+            <div
+                id="groupMessages"
+                class="group-messages">
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="groupInput"
+                    placeholder="Write a message...">
+
+                <button
+                    onclick="sendGroupMessage()"
+                    class="primary-btn">
+                    Send
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= DISCUSSIONS ================= -->
+
+    <div
+        id="discussionsTab"
+        class="community-tab-content">
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>📝 Discussions</h2>
+
+                    <p>
+                        Start conversations and share ideas.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="focusCreatePost()">
+                    + New Discussion
+                </button>
+
+            </div>
+
+
+            <div class="create-post-box">
+
+                <input
+                    type="text"
+                    id="newPostInput"
+                    placeholder="Start a discussion...">
+
+                <button onclick="createDiscussionPost()">
+                    Post
+                </button>
+
+            </div>
+
+
+            <div id="fullDiscussions"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= MEMBERS ================= -->
+
+    <div
+        id="membersTab"
+        class="community-tab-content">
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>👥 Community Members</h2>
+
+                    <p>
+                        Connect with students in this community.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="memberGrid"
+                class="member-grid">
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= EVENTS ================= -->
+
+    <div
+        id="eventsTab"
+        class="community-tab-content">
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>📅 Community Events</h2>
+
+                    <p>
+                        Discover upcoming activities and events.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="createEvent()">
+                    + Create Event
+                </button>
+
+            </div>
+
+
+            <div id="fullEvents"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <div
+        id="projectsTab"
+        class="community-tab-content">
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>🤝 Projects & Collaboration</h2>
+
+                    <p>
+                        Find projects and teammates.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="createProject()">
+                    + Create Project
+                </button>
+
+            </div>
+
+
+            <div id="fullProjects" class="project-grid">
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= RESOURCES ================= -->
+
+    <div
+        id="resourcesTab"
+        class="community-tab-content">
+
+        <section class="overview-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>📚 Resources</h2>
+
+                    <p>
+                        Useful learning material shared
+                        by the community.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+
+                    
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+    
+
+<!-- ================= MESSAGES ================= -->
+
+<main id="messages-page" class="page">
+
+    <section class="page-header">
+
+        <span class="page-label">MESSAGES</span>
+
+        <h1>Your Messages</h1>
+
+        <p>
+            Chat privately with your connections.
+        </p>
+
+    </section>
+
+
+    <section class="messages-container">
+
+        <!-- CONVERSATION LIST -->
+
+        <div class="conversation-list">
+
+            <div class="conversation-header">
+                <h3>Conversations</h3>
+            </div>
+
+            <div id="conversationList">
+
+                <div class="no-conversations">
+                    <span>💬</span>
+                    <p>No conversations yet</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHAT WINDOW -->
+
+        <div class="chat-window">
+
+            <div
+                id="chatHeader"
+                class="chat-header"
+            >
+
+                <div class="chat-user-avatar">
+                    ?
+                </div>
+
+                <div>
+                    <h3 id="chatUserName">
+                        Select a conversation
+                    </h3>
+
+                    <p id="chatUserStatus">
+                        Your messages will appear here
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="chatMessages"
+                class="chat-messages"
+            >
+
+                <div class="chat-placeholder">
+
+                    <div>💬</div>
+
+                    <h3>
+                        Start a conversation
+                    </h3>
+
+                    <p>
+                        Select a student to start messaging.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE INPUT -->
+
+            <form
+                id="messageForm"
+                class="message-input-area"
+            >
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="submit"
+                    id="sendMessageBtn"
+                >
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ================= PROFILE ================= -->
+
+<main id="profile-page" class="page">
+
+    <section class="page-header">
+
+        <span class="page-label">PROFILE</span>
+
+        <h1>Your Profile</h1>
+
+        <p>
+            Manage your profile and interests.
+        </p>
+
+    </section>
+
+
+    <section class="profile-card">
+
+        <div class="profile-avatar">
+            KS
+        </div>
+
+        <div>
+
+            <h2>Keshav Soni</h2>
+
+            <p>
+                Computer Science & Engineering
+            </p>
+
+            <div class="student-tags">
+                <span>C++</span>
+                <span>Java</span>
+                <span>Web Development</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ================= ADMIN DASHBOARD ================= -->
+
+<main id="admin-page" class="page">
+
+    <section class="page-header">
+        <span class="page-label">ADMIN PANEL</span>
+        <h1>Admin Dashboard 👑</h1>
+        <p>Manage Campus Connect and monitor platform activity.</p>
+    </section>
+
+    <section class="admin-stats-grid">
+
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon">👥</div>
+            <div>
+                <span>Total Users</span>
+                <strong id="adminTotalUsers">—</strong>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon">🌐</div>
+            <div>
+                <span>Total Communities</span>
+                <strong id="adminTotalCommunities">—</strong>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon">🔗</div>
+            <div>
+                <span>Total Connections</span>
+                <strong id="adminTotalConnections">—</strong>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="admin-stat-icon">💬</div>
+            <div>
+                <span>Total Messages</span>
+                <strong id="adminTotalMessages">—</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="admin-management-grid">
+
+        <div class="admin-management-card">
+            <div class="admin-card-icon">👤</div>
+            <div>
+                <h2>User Management</h2>
+                <p>View and manage registered Campus Connect users.</p>
+            </div>
+            <button type="button" class="admin-action-btn" onclick="openAdminUsers()">
+                Manage Users
+            </button>
+        </div>
+
+        <div class="admin-management-card">
+    <div class="admin-card-icon">🌐</div>
+
+    <div>
+        <h2>Community Management</h2>
+        <p>Create, manage and monitor Campus Connect communities.</p>
+    </div>
+
+    <button
+        type="button"
+        class="admin-action-btn"
+        onclick="openAdminCommunities()">
+        Manage Communities
+    </button>
+</div>
+        <div class="admin-management-card">
+            <div class="admin-card-icon">🚨</div>
+            <div>
+                <h2>Reports</h2>
+                <p>Review reports and platform moderation issues.</p>
+            </div>
+            <button type="button" class="admin-action-btn" onclick="openAdminReports()">
+                View Reports
+            </button>
+        </div>
+
+        <div class="admin-management-card">
+            <div class="admin-card-icon">⚙️</div>
+            <div>
+                <h2>Admin Settings</h2>
+                <p>Manage administrative controls and platform settings.</p>
+            </div>
+            <button type="button" class="admin-action-btn" onclick="openAdminSettings()">
+                Admin Settings
+            </button>
+        </div>
+
+    </section>
+
+    <section class="admin-recent-card">
+        <div class="section-heading">
+            <div>
+                <span class="page-label">PLATFORM OVERVIEW</span>
+                <h2>Campus Connect Activity</h2>
+            </div>
+            <button type="button" class="secondary-btn" onclick="loadAdminStats()">
+                ↻ Refresh Stats
+            </button>
+        </div>
+
+        <div id="adminStatusMessage" class="admin-status-message">
+            Loading admin statistics...
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= ADMIN USER MANAGEMENT ================= -->
+
+<main id="admin-users-page" class="page">
+
+    <section class="page-header">
+
+        <span class="page-label">
+            USER MANAGEMENT
+        </span>
+
+        <h1>Manage Users</h1>
+
+        <p>
+            View and search registered Campus Connect users.
+        </p>
+
+    </section>
+
+
+    <section class="admin-users-panel">
+
+        <div class="admin-users-toolbar">
+
+            <div>
+
+                <h2>All Users</h2>
+
+                <p id="adminUsersCount">
+                    Loading users...
+                </p>
+
+            </div>
+
+
+            <div class="admin-user-search">
+
+                <input
+                    type="text"
+                    id="adminUserSearch"
+                    placeholder="Search name, email, college..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    onclick="loadAdminUsers()">
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="adminUsersTableContainer"
+            class="admin-users-table-container">
+
+            <div class="admin-users-loading">
+                Loading users...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div id="loginModal" style="
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+">
+
+    <div style="
+        width: 380px;
+        max-width: 90%;
+        background: white;
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    ">
+
+        <div style="text-align:center; margin-bottom:24px;">
+            <div style="
+                width:55px;
+                height:55px;
+                margin:0 auto 14px;
+                border-radius:16px;
+                background:#2563eb;
+                color:white;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:25px;
+                font-weight:700;
+            ">
+                C
+            </div>
+
+            <h2 style="margin:0 0 8px;">Welcome Back</h2>
+
+            <p style="
+                margin:0;
+                color:#64748b;
+                font-size:14px;
+            ">
+                Login to continue to Campus Connect
+            </p>
+        </div>
+
+        <form id="loginForm">
+
+            <div style="margin-bottom:16px;">
+                <label style="
+                    display:block;
+                    margin-bottom:7px;
+                    font-weight:600;
+                ">
+                    Email
+                </label>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    style="
+                        width:100%;
+                        box-sizing:border-box;
+                        padding:13px 14px;
+                        border:1px solid #cbd5e1;
+                        border-radius:10px;
+                        font-size:15px;
+                        outline:none;
+                    "
+                >
+            </div>
+
+            <div style="margin-bottom:20px;">
+                <label style="
+                    display:block;
+                    margin-bottom:7px;
+                    font-weight:600;
+                ">
+                    Password
+                </label>
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                    style="
+                        width:100%;
+                        box-sizing:border-box;
+                        padding:13px 14px;
+                        border:1px solid #cbd5e1;
+                        border-radius:10px;
+                        font-size:15px;
+                        outline:none;
+                    "
+                >
+            </div>
+
+            <button
+                id="loginSubmitBtn"
+                type="submit"
+                style="
+                    width:100%;
+                    padding:13px;
+                    border:none;
+                    border-radius:10px;
+                    background:#2563eb;
+                    color:white;
+                    font-size:15px;
+                    font-weight:600;
+                    cursor:pointer;
+                "
+            >
+                Login
+            </button>
+
+            <p
+                id="loginMessage"
+                style="
+                    margin:14px 0 0;
+                    text-align:center;
+                    font-size:14px;
+                "
+            ></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ================= END LOGIN MODAL ================= -->
+
+
+<script>
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+async function loadAdminStats() {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) return;
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/admin/stats",
+            {
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer " + token,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(
+                data.message || "Failed to load admin statistics"
+            );
+        }
+
+        const stats = data.stats || {};
+
+        document.getElementById("adminTotalUsers").textContent =
+            stats.totalUsers ?? 0;
+
+        document.getElementById("adminTotalCommunities").textContent =
+            stats.totalCommunities ?? 0;
+
+        document.getElementById("adminTotalConnections").textContent =
+            stats.totalConnections ?? 0;
+
+        document.getElementById("adminTotalMessages").textContent =
+            stats.totalMessages ?? 0;
+
+        const status = document.getElementById("adminStatusMessage");
+
+        if (status) {
+            status.textContent = "Statistics updated successfully.";
+        }
+
+    } catch (error) {
+
+        console.error("Admin dashboard error:", error);
+
+        const status = document.getElementById("adminStatusMessage");
+
+        if (status) {
+            status.textContent = "Unable to load admin statistics.";
+        }
+    }
+}
+
+
+function openAdminPage() {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => page.classList.remove("active"));
+
+    const adminPage = document.getElementById("admin-page");
+
+    if (adminPage) {
+        adminPage.classList.add("active");
+        loadAdminStats();
+    }
+}
+
+
+function openAdminUsers() {
+    alert("User Management will be added next.");
+}
+
+function openAdminCommunities() {
+    alert("Community Management will be added next.");
+}
+
+function openAdminReports() {
+    alert("Reports & Moderation will be added next.");
+}
+
+function openAdminSettings() {
+    alert("Admin Settings will be added next.");
+}
+
+
+function setupAdminAccess() {
+
+    const token = localStorage.getItem("token");
+    const adminNavBtn = document.getElementById("adminNavBtn");
+
+    if (!token || !adminNavBtn) return;
+
+    try {
+
+        const payload =
+            JSON.parse(atob(token.split(".")[1]));
+
+        if (payload.role === "admin") {
+
+            adminNavBtn.style.display = "inline-flex";
+
+            adminNavBtn.onclick = function () {
+                openAdminPage();
+            };
+
+        } else {
+
+            adminNavBtn.style.display = "none";
+        }
+
+    } catch (error) {
+
+        console.error("Admin access setup error:", error);
+        adminNavBtn.style.display = "none";
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    setupAdminAccess();
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html> 
