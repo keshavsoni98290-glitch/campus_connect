@@ -633,7 +633,7 @@ async function loadDiscoverStudents() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/users",
+            "https://campus-connect-backend-ruq3.onrender.com/api/users",
             {
                 method: "GET",
 
@@ -2434,7 +2434,7 @@ document.addEventListener("click", function(event) {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/connections/sent",
+                "https://campus-connect-backend-ruq3.onrender.com/api/connections/sent",
                 {
                     method: "GET",
                     headers: {
@@ -2485,7 +2485,7 @@ document.addEventListener("click", function(event) {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/connections/received",
+                "https://campus-connect-backend-ruq3.onrender.com/api/connections/received",
                 {
                     method: "GET",
                     headers: {
@@ -2726,7 +2726,7 @@ document.addEventListener("click", function(event) {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/connections",
+                "https://campus-connect-backend-ruq3.onrender.com/api/connections",
                 {
                     method: "POST",
 
@@ -2809,7 +2809,7 @@ document.addEventListener("click", function(event) {
         try {
 
             const response = await fetch(
-                `http://localhost:5000/api/connections/${connectionId}/accept`,
+                `https://campus-connect-backend-ruq3.onrender.com/api/connections/${connectionId}/accept`,
                 {
                     method: "PUT",
 
@@ -2875,7 +2875,7 @@ document.addEventListener("click", function(event) {
         try {
 
             const response = await fetch(
-                `http://localhost:5000/api/connections/${connectionId}/reject`,
+                `https://campus-connect-backend-ruq3.onrender.com/api/connections/${connectionId}/reject`,
                 {
                     method: "PUT",
 
@@ -3135,7 +3135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/auth/login",
+                "https://campus-connect-backend-ruq3.onrender.com/api/auth/login",
                 {
                     method: "POST",
 
@@ -3214,7 +3214,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/users/profile",
+                "https://campus-connect-backend-ruq3.onrender.com/api/users/profile",
                 {
                     method: "GET",
                     headers: {
@@ -3344,7 +3344,7 @@ async function loadConversation(userId, userName) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/messages/${userId}`,
+            `https://campus-connect-backend-ruq3.onrender.com/api/messages/${userId}`,
             {
                 method: "GET",
                 headers: {
@@ -3400,7 +3400,7 @@ async function loadConversationList() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/users",
+            "https://campus-connect-backend-ruq3.onrender.com/api/users",
             {
                 method: "GET",
                 headers: {
@@ -3594,7 +3594,7 @@ async function sendDMMessage(event) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/messages",
+            "https://campus-connect-backend-ruq3.onrender.com/api/messages",
             {
                 method: "POST",
 
@@ -3832,7 +3832,7 @@ async function loadConversation(userId, userName) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/messages/" +
+            "https://campus-connect-backend-ruq3.onrender.com/api/messages/" +
             activeChatUserId,
             {
                 method: "GET",
@@ -4010,7 +4010,7 @@ async function sendMessage() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/messages",
+                "https://campus-connect-backend-ruq3.onrender.com/api/messages",
                 {
                     method: "POST",
 
@@ -4200,7 +4200,7 @@ async function loadAdminStats() {
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/admin/stats", {
+        const response = await fetch("https://campus-connect-backend-ruq3.onrender.com/api/admin/stats", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -4300,7 +4300,7 @@ async function loadAdminUsers() {
     }
 
     try {
-        let url = "http://localhost:5000/api/admin/users";
+        let url = "https://campus-connect-backend-ruq3.onrender.com/api/admin/users";
 
         if (search) {
             url += `?search=${encodeURIComponent(search)}`;
